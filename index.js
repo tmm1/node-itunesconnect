@@ -544,8 +544,8 @@ Query.prototype.body = function() {
 
 	// Building body
 	this._body = {
-		"start_date"	: this.config.start.format("YYYY-MM-DD[T00:00:00.000Z]"),
-		"end_date"		: this.config.end.format("YYYY-MM-DD[T00:00:00.000Z]"),
+		"start_date"	: this.config.start.startOf('day').format(),
+		"end_date"		: this.config.end.endOf('day').format(),
 		"interval"		: this.config.interval,
 		"filters"		: TransformValue.toBodyFilters(this.config.filters),
 		"group"			: TransformValue.toAppleKey(this.config.group),
